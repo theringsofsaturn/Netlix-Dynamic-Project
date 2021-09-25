@@ -85,10 +85,13 @@
             </div>
             <script>
 
+
+                // The async function to handle the submit
                 const handleSubmit = async () => {
 
                     event.preventDefault()
 
+                    // The new movie reference values
                     const newMovieFunc = {
                         name: document.getElementById("movieName").value,
                         description: document.getElementById("movieDescription").value,
@@ -107,7 +110,7 @@
                             body: JSON.stringify(newMovieFunc),
                         })
                         const movie = await response.json()
-                        console.log("Data", movie)
+                        console.log("Data for movie arrays", movie)
                     } catch (error) {
                         console.log(error)
                     }
