@@ -5,9 +5,9 @@ window.onload = async () => {
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YThiODE2ZWY2MDAwMTVjZWQwNTUiLCJpYXQiOjE2MzIzMTU3ODksImV4cCI6MTYzMzUyNTM4OX0.5DMyLDm1BhaVjrBNllHevG_JWKkIIT8o2np1ZpuHMFw";
 
   // Reference to categories in the DOM
-  const drama = document.getElementById("drama");
-  const comedy = document.getElementById("comedy");
-  const thriller = document.getElementById("thriller");
+  const dramaContainer = document.getElementById("drama");
+  const comedyContainer = document.getElementById("comedy");
+  const thrillerContainer = document.getElementById("thriller");
 
   // The main Try/Catch
   try {
@@ -35,6 +35,105 @@ window.onload = async () => {
     const dramaData = await dramaResponse.json();
     const comedyData = await comedyResponse.json();
     const thrillerData = await thrillerResponse.json();
+
+    // DRAMA
+    if (dramaResponse > 0) {
+      dramaResponse.forEach((movie) => {
+        dramaContainer.innerHTML += `<div class="movie-row">
+        <div class="row">
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media0.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media1.jpg">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media2.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media3.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media4.jpg">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media5.webp">
+            </div>
+
+        </div>
+    </div>`;
+      });
+    } else {
+      dramaResponse.innerHTML = `<div class="alert alert-info" role="alert">
+      No movies yet!
+    </div>`;
+    }
+
+    // Comedy
+    if (comedyResponse > 0) {
+      comedyResponse.forEach((movie) => {
+        comedyResponse.innerHTML += `<div class="movie-row">
+        <div class="row">
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media0.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media1.jpg">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media2.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media3.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media4.jpg">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media5.webp">
+            </div>
+
+        </div>
+    </div>`;
+      });
+    } else {
+      comedyResponse.innerHTML = `<div class="alert alert-info" role="alert">
+      No movies yet!
+    </div>`;
+    }
+
+    // Thriller
+    if (thrillerResponse > 0) {
+      thrillerResponse.forEach((movie) => {
+        thrillerResponse.innerHTML += `<div class="movie-row">
+        <div class="row">
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media0.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media1.jpg">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media2.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media3.webp">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media4.jpg">
+            </div>
+            <div class="col-md-2">
+                <img class="movie-cover" src="./img/media5.webp">
+            </div>
+
+        </div>
+    </div>`;
+      });
+    } else {
+      `<div class="alert alert-info" role="alert">
+      No movies yet!
+    </div>`;
+    }
   } catch (error) {
     console.log(error);
   }
